@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crispy Kitchen - Delicious Food</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #ff6b6b;
+        }
+        
+        .logo span {
+            color: #333;
+        }
+        
+        .nav-links {
+            display: flex;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #ff6b6b;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            margin-top: 70px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #ff6b6b;
+            color: #fff;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #ff5252;
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: #777;
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-img {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            color: #555;
+        }
+        
+        /* Menu Section */
+        .menu-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .menu-item {
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .menu-item:hover {
+            transform: translateY(-10px);
+        }
+        
+        .menu-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .menu-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .menu-item:hover .menu-img img {
+            transform: scale(1.1);
+        }
+        
+        .menu-content {
+            padding: 20px;
+        }
+        
+        .menu-content h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .menu-content p {
+            color: #777;
+            margin-bottom: 15px;
+        }
+        
+        .price {
+            font-size: 20px;
+            font-weight: 700;
+            color: #ff6b6b;
+        }
+        
+        /* Updates Section */
+        .updates {
+            background-color: #f1f1f1;
+        }
+        
+        .update-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .update-card {
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .update-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .update-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .update-content {
+            padding: 20px;
+        }
+        
+        .update-date {
+            color: #ff6b6b;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        
+        .update-content h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .update-content p {
+            color: #777;
+            margin-bottom: 15px;
+        }
+        
+        /* Story Section */
+        .story-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .story-content p {
+            margin-bottom: 20px;
+            color: #555;
+            font-size: 18px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 50px 0 20px;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        
+        .footer-links li {
+            margin: 0 15px;
+        }
+        
+        .footer-links a {
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #ff6b6b;
+        }
+        
+        .social-links {
+            margin-bottom: 30px;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: #444;
+            color: #fff;
+            border-radius: 50%;
+            line-height: 40px;
+            margin: 0 10px;
+            transition: background-color 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: #ff6b6b;
+        }
+        
+        .copyright {
+            color: #aaa;
+            font-size: 14px;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                padding: 15px 0;
+            }
+            
+            .logo {
+                margin-bottom: 15px;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .nav-links li {
+                margin: 0 10px 10px;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .section-title h2 {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">Crispy<span>Kitchen</span></a>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#updates">Our Updates</a></li>
+                    <li><a href="#story">Story</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section (Home) -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Delicious Food For Your Cravings</h1>
+            <p>We cook the best food in the entire city, with excellent customer service, the best meals, and at the best price.</p>
+            <a href="#menu" class="btn">View Menu</a>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Crispy Kitchen</h2>
+                <p>Learn more about our restaurant and our passion for delicious food</p>
+            </div>
+            <div class="about-content">
+                <div class="about-img">
+                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Restaurant Interior">
+                </div>
+                <div class="about-text">
+                    <h3>Our Restaurant Story</h3>
+                    <p>Founded in 2010, Crispy Kitchen has been serving delicious meals to our valued customers for over a decade. Our passion for food and commitment to quality has made us one of the most beloved restaurants in the city.</p>
+                    <p>We source only the freshest ingredients from local farmers and suppliers to ensure every dish we serve meets our high standards of quality and taste.</p>
+                    <p>Our team of experienced chefs brings creativity and expertise to the kitchen, crafting dishes that are both visually stunning and incredibly delicious.</p>
+                    <a href="#story" class="btn">Read Full Story</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Delicious Menu</h2>
+                <p>Explore our carefully crafted menu featuring a variety of dishes to satisfy every palate</p>
+            </div>
+            <div class="menu-items">
+                <!-- Menu Item 1 -->
+                <div class="menu-item">
+                    <div class="menu-img">
+                        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Salad">
+                    </div>
+                    <div class="menu-content">
+                        <h3>Fresh Garden Salad</h3>
+                        <p>Crisp greens, cherry tomatoes, cucumber, carrots, and our house dressing</p>
+                        <span class="price">$12.99</span>
+                    </div>
+                </div>
+                
+                <!-- Menu Item 2 -->
+                <div class="menu-item">
+                    <div class="menu-img">
+                        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Pizza">
+                    </div>
+                    <div class="menu-content">
+                        <h3>Wood-Fired Pizza</h3>
+                        <p>Hand-tossed dough, San Marzano tomato sauce, fresh mozzarella, and basil</p>
+                        <span class="price">$16.99</span>
+                    </div>
+                </div>
+                
+                <!-- Menu Item 3 -->
+                <div class="menu-item">
+                    <div class="menu-img">
+                        <img src="https://images.unsplash.com/photo-1559847844-5315695dadae?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Burger">
+                    </div>
+                    <div class="menu-content">
+                        <h3>Classic Burger</h3>
+                        <p>Grass-fed beef patty, cheddar cheese, lettuce, tomato, and special sauce</p>
+                        <span class="price">$14.99</span>
+                    </div>
+                </div>
+                
+                <!-- Menu Item 4 -->
+                <div class="menu-item">
+                    <div class="menu-img">
+                        <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Pasta">
+                    </div>
+                    <div class="menu-content">
+                        <h3>Creamy Pasta</h3>
+                        <p>Fettuccine pasta with creamy alfredo sauce, mushrooms, and parmesan</p>
+                        <span class="price">$15.99</span>
+                    </div>
+                </div>
+                
+                <!-- Menu Item 5 -->
+                <div class="menu-item">
+                    <div class="menu-img">
+                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Dessert">
+                    </div>
+                    <div class="menu-content">
+                        <h3>Chocolate Lava Cake</h3>
+                        <p>Warm chocolate cake with a molten center, served with vanilla ice cream</p>
+                        <span class="price">$8.99</span>
+                    </div>
+                </div>
+                
+                <!-- Menu Item 6 -->
+                <div class="menu-item">
+                    <div class="menu-img">
+                        <img src="https://images.unsplash.com/photo-1432139555190-58524dae6a55?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Drink">
+                    </div>
+                    <div class="menu-content">
+                        <h3>Fresh Lemonade</h3>
+                        <p>Homemade lemonade with fresh squeezed lemons and a hint of mint</p>
+                        <span class="price">$4.99</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Updates Section -->
+    <section id="updates" class="section updates">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Updates</h2>
+                <p>Stay updated with our latest news, events, and special offers</p>
+            </div>
+            <div class="update-cards">
+                <!-- Update 1 -->
+                <div class="update-card">
+                    <div class="update-img">
+                        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Restaurant">
+                    </div>
+                    <div class="update-content">
+                        <div class="update-date">June 15, 2023</div>
+                        <h3>Summer Special Menu</h3>
+                        <p>We've introduced a new summer menu featuring fresh seasonal ingredients and refreshing dishes perfect for warm weather.</p>
+                        <a href="#" class="btn">Read More</a>
+                    </div>
+                </div>
+                
+                <!-- Update 2 -->
+                <div class="update-card">
+                    <div class="update-img">
+                        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Event">
+                    </div>
+                    <div class="update-content">
+                        <div class="update-date">July 2, 2023</div>
+                        <h3>Live Music Nights</h3>
+                        <p>Starting this July, enjoy live music performances every Friday night while you dine with us.</p>
+                        <a href="#" class="btn">Read More</a>
+                    </div>
+                </div>
+                
+                <!-- Update 3 -->
+                <div class="update-card">
+                    <div class="update-img">
+                        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Chef">
+                    </div>
+                    <div class="update-content">
+                        <div class="update-date">August 10, 2023</div>
+                        <h3>New Head Chef</h3>
+                        <p>We're excited to welcome our new head chef who brings innovative culinary techniques to our kitchen.</p>
+                        <a href="#" class="btn">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story Section -->
+    <section id="story" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Story</h2>
+                <p>How Crispy Kitchen became the beloved restaurant it is today</p>
+            </div>
+            <div class="story-content">
+                <p>Crispy Kitchen began as a small family-owned diner in 2010, with just five tables and a simple menu. Our founder, Chef Michael Rodriguez, had a vision of creating a restaurant that served high-quality, delicious food in a warm and welcoming atmosphere.</p>
+                <p>Through word of mouth and our commitment to excellence, we gradually expanded. What started as a humble diner has now become one of the city's most popular dining destinations, with over 50 employees and seating for 120 guests.</p>
+                <p>Despite our growth, we've never lost sight of our roots. We still prepare many of our dishes using Chef Michael's original recipes, and we maintain the same focus on quality ingredients and exceptional service that we had on day one.</p>
+                <p>Today, Crispy Kitchen continues to innovate while staying true to our core values. We're proud to be part of the community and look forward to serving you for many years to come.</p>
+                <a href="#about" class="btn">More About Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <a href="#" class="logo">Crispy<span>Kitchen</span></a>
+            <ul class="footer-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#updates">Updates</a></li>
+                <li><a href="#story">Story</a></li>
+            </ul>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f">f</i></a>
+                <a href="#"><i class="fab fa-twitter">t</i></a>
+                <a href="#"><i class="fab fa-instagram">i</i></a>
+                <a href="#"><i class="fab fa-youtube">y</i></a>
+            </div>
+            <p class="copyright">&copy; 2023 Crispy Kitchen. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

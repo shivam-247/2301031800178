@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crispy Kitchen - Menu</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f9f9;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+header {
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: #ff6b6b;
+}
+
+.logo span {
+    color: #333;
+}
+
+.nav-links {
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 30px;
+}
+
+.nav-links a {
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #ff6b6b;
+}
+
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    margin-top: 70px;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #ff6b6b;
+    color: #fff;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #ff5252;
+}
+
+section {
+    padding: 100px 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-title h2 {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.section-title p {
+    color: #777;
+    font-size: 18px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.about-img {
+    flex: 1;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.about-img img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-text h3 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.about-text p {
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.menu-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.menu-item {
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.menu-item:hover {
+    transform: translateY(-10px);
+}
+
+.menu-img {
+    height: 200px;
+    overflow: hidden;
+}
+
+.menu-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.menu-item:hover .menu-img img {
+    transform: scale(1.1);
+}
+
+.menu-content {
+    padding: 20px;
+}
+
+.menu-content h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.menu-content p {
+    color: #777;
+    margin-bottom: 15px;
+}
+
+.price {
+    font-size: 20px;
+    font-weight: 700;
+    color: #ff6b6b;
+}
+
+.updates {
+    background-color: #f1f1f1;
+}
+
+.update-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.update-card {
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.update-img {
+    height: 200px;
+    overflow: hidden;
+}
+
+.update-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.update-content {
+    padding: 20px;
+}
+
+.update-date {
+    color: #ff6b6b;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.update-content h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.update-content p {
+    color: #777;
+    margin-bottom: 15px;
+}
+
+.story-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.story-content p {
+    margin-bottom: 20px;
+    color: #555;
+    font-size: 18px;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 50px 0 20px;
+    text-align: center;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.footer-links li {
+    margin: 0 15px;
+}
+
+.footer-links a {
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #ff6b6b;
+}
+
+.social-links {
+    margin-bottom: 30px;
+}
+
+.social-links a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-color: #444;
+    color: #fff;
+    border-radius: 50%;
+    line-height: 40px;
+    margin: 0 10px;
+    transition: background-color 0.3s;
+}
+
+.social-links a:hover {
+    background-color: #ff6b6b;
+}
+
+.copyright {
+    color: #aaa;
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 15px 0;
+    }
+    
+    .logo {
+        margin-bottom: 15px;
+    }
+    
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .nav-links li {
+        margin: 0 10px 10px;
+    }
+    
+    .hero h1 {
+        font-size: 36px;
+    }
+    
+    .hero p {
+        font-size: 18px;
+    }
+    
+    .about-content {
+        flex-direction: column;
+    }
+    
+    .section-title h2 {
+        font-size: 30px;
+    }
+}
+</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crispy Kitchen - Menu</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">Crispy<span>Kitchen</span></a>
+                <ul class="nav-links">
+                    <li><a href="INDEX.html">Home</a></li>
+                    <li><a href="ABOUT.html">About Us</a></li>
+                    <li><a href="MENU1.html">Menu</a></li>
+                    <li><a href="UPDATES.html">Our Updates</a></li>
+                    <li><a href="STORY1.html">Story</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="menu" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Delicious Menu</h2>
+                <p>Explore our carefully crafted menu featuring a variety of dishes to satisfy every palate</p>
+            </div>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <div class="menu-img">
+                        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Salad">
+                    </div>
+                    <div class="menu-content">
+                        <h3>Fresh Garden Salad</h3>
+                        <p>Crisp greens, cherry tomatoes, cucumber, carrots, and our house dressing</p>
+                        <span class="price">$12.99</span>
+                    </div>
+                </div>
+                
+                <div class="menu-item">
+                    <div class="menu-img">
+                        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Pizza">
+                    </div>
+                    <div class="menu-content">
+                        <h3>Wood-Fired Pizza</h3>
+                        <p>Hand-tossed dough, San Marzano tomato sauce, fresh mozzarella, and basil</p>
+                        <span class="price">$16.99</span>
+                    </div>
+                </div>
+                
+                <div class="menu-item">
+                    <div class="menu-img">
+                        <img src="https://images.unsplash.com/photo-1559847844-5315695dadae?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Burger">
+                    </div>
+                    <div class="menu-content">
+                        <h3>Classic Burger</h3>
+                        <p>Grass-fed beef patty, cheddar cheese, lettuce, tomato, and special sauce</p>
+                        <span class="price">$14.99</span>
+                    </div>
+                </div>
+                
+                <div class="menu-item">
+                    <div class="menu-img">
+                        <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Pasta">
+                    </div>
+                    <div class="menu-content">
+                        <h3>Creamy Pasta</h3>
+                        <p>Fettuccine pasta with creamy alfredo sauce, mushrooms, and parmesan</p>
+                        <span class="price">$15.99</span>
+                    </div>
+                </div>
+                
+                <div class="menu-item">
+                    <div class="menu-img">
+                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Dessert">
+                    </div>
+                    <div class="menu-content">
+                        <h3>Chocolate Lava Cake</h3>
+                        <p>Warm chocolate cake with a molten center, served with vanilla ice cream</p>
+                        <span class="price">$8.99</span>
+                    </div>
+                </div>
+                
+                <div class="menu-item">
+                    <div class="menu-img">
+                        <img src="https://images.unsplash.com/photo-1432139555190-58524dae6a55?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Drink">
+                    </div>
+                    <div class="menu-content">
+                        <h3>Fresh Lemonade</h3>
+                        <p>Homemade lemonade with fresh squeezed lemons and a hint of mint</p>
+                        <span class="price">$4.99</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <a href="index.html" class="logo">Crispy<span>Kitchen</span></a>
+            <ul class="footer-links">
+                  <li><a href="INDEX.html">Home</a></li>
+                    <li><a href="ABOUT.html">About Us</a></li>
+                    <li><a href="MENU1.html">Menu</a></li>
+                    <li><a href="UPDATES.html">Our Updates</a></li>
+                    <li><a href="STORY1.html">Story</a></li>
+            </ul>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p class="copyright">© 2023 Crispy Kitchen. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

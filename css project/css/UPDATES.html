@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crispy Kitchen - Updates</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f9f9;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+header {
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: #ff6b6b;
+}
+
+.logo span {
+    color: #333;
+}
+
+.nav-links {
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 30px;
+}
+
+.nav-links a {
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #ff6b6b;
+}
+
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    margin-top: 70px;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #ff6b6b;
+    color: #fff;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #ff5252;
+}
+
+section {
+    padding: 100px 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-title h2 {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.section-title p {
+    color: #777;
+    font-size: 18px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.about-img {
+    flex: 1;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.about-img img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-text h3 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.about-text p {
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.menu-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.menu-item {
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.menu-item:hover {
+    transform: translateY(-10px);
+}
+
+.menu-img {
+    height: 200px;
+    overflow: hidden;
+}
+
+.menu-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.menu-item:hover .menu-img img {
+    transform: scale(1.1);
+}
+
+.menu-content {
+    padding: 20px;
+}
+
+.menu-content h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.menu-content p {
+    color: #777;
+    margin-bottom: 15px;
+}
+
+.price {
+    font-size: 20px;
+    font-weight: 700;
+    color: #ff6b6b;
+}
+
+.updates {
+    background-color: #f1f1f1;
+}
+
+.update-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.update-card {
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.update-img {
+    height: 200px;
+    overflow: hidden;
+}
+
+.update-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.update-content {
+    padding: 20px;
+}
+
+.update-date {
+    color: #ff6b6b;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.update-content h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.update-content p {
+    color: #777;
+    margin-bottom: 15px;
+}
+
+.story-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.story-content p {
+    margin-bottom: 20px;
+    color: #555;
+    font-size: 18px;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 50px 0 20px;
+    text-align: center;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.footer-links li {
+    margin: 0 15px;
+}
+
+.footer-links a {
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #ff6b6b;
+}
+
+.social-links {
+    margin-bottom: 30px;
+}
+
+.social-links a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-color: #444;
+    color: #fff;
+    border-radius: 50%;
+    line-height: 40px;
+    margin: 0 10px;
+    transition: background-color 0.3s;
+}
+
+.social-links a:hover {
+    background-color: #ff6b6b;
+}
+
+.copyright {
+    color: #aaa;
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 15px 0;
+    }
+    
+    .logo {
+        margin-bottom: 15px;
+    }
+    
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .nav-links li {
+        margin: 0 10px 10px;
+    }
+    
+    .hero h1 {
+        font-size: 36px;
+    }
+    
+    .hero p {
+        font-size: 18px;
+    }
+    
+    .about-content {
+        flex-direction: column;
+    }
+    
+    .section-title h2 {
+        font-size: 30px;
+    }
+}
+</style>
+
+<body>
+ <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">Crispy<span>Kitchen</span></a>
+                <ul class="nav-links">
+                    <li><a href="INDEX.html">Home</a></li>
+                    <li><a href="ABOUT.html">About Us</a></li>
+                    <li><a href="MENU1.html">Menu</a></li>
+                    <li><a href="UPDATES.html">Our Updates</a></li>
+                    <li><a href="STORY1.html">Story</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="updates" class="section updates">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Updates</h2>
+                <p>Stay updated with our latest news, events, and special offers</p>
+            </div>
+            <div class="update-cards">
+                <div class="update-card">
+                    <div class="update-img">
+                        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Restaurant">
+                    </div>
+                    <div class="update-content">
+                        <div class="update-date">June 15, 2023</div>
+                        <h3>Summer Special Menu</h3>
+                        <p>We've introduced a new summer menu featuring fresh seasonal ingredients and refreshing dishes perfect for warm weather.</p>
+                        <a href="#" class="btn">Read More</a>
+                    </div>
+                </div>
+                
+                <div class="update-card">
+                    <div class="update-img">
+                        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Event">
+                    </div>
+                    <div class="update-content">
+                        <div class="update-date">July 2, 2023</div>
+                        <h3>Live Music Nights</h3>
+                        <p>Starting this July, enjoy live music performances every Friday night while you dine with us.</p>
+                        <a href="#" class="btn">Read More</a>
+                    </div>
+                </div>
+                
+                <div class="update-card">
+                    <div class="update-img">
+                        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Chef">
+                    </div>
+                    <div class="update-content">
+                        <div class="update-date">August 10, 2023</div>
+                        <h3>New Head Chef</h3>
+                        <p>We're excited to welcome our new head chef who brings innovative culinary techniques to our kitchen.</p>
+                        <a href="#" class="btn">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <a href="index.html" class="logo">Crispy<span>Kitchen</span></a>
+            <ul class="footer-links">
+                    <li><a href="INDEX.html">Home</a></li>
+                    <li><a href="ABOUT.html">About Us</a></li>
+                    <li><a href="MENU1.html">Menu</a></li>
+                    <li><a href="UPDATES.html">Our Updates</a></li>
+                    <li><a href="STORY1.html">Story</a></li>
+            </ul>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p class="copyright">© 2023 Crispy Kitchen. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
